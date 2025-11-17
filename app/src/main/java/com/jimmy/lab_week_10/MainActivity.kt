@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.text_total, total)
     }
     private fun prepareViewModel(){
-        viewModel.total.observe(this) { total ->
-            updateText(total)
-        }
+        viewModel.total.observe(this, {
+            updateText(it)
+        })
         findViewById<Button>(R.id.button_increment).setOnClickListener {
             viewModel.incrementTotal()
         }
